@@ -53,12 +53,19 @@ int main() {
     do {
         // Exibe o menu de opções
         printf("============================================================\n");
-        printf(" TERRITÓRIO WAR  \n");
+        printf("        TERRITÓRIO WAR  \n");
+        printf("Vamos cadastrar os 5 territórios iniciais do nosso mundo\n" );
+        printf("------------------------------------------------------------\n");
         printf("1 - Cadastrar no território\n");
         printf("2 - Listar terrritórios cadastrados\n");
+        printf("0 - sair\n");
         printf("------------------------------------------------------------\n");
-        printf("Vamos cadastrar os 5 territórios iniciais do nosso mundo\n" );
-        
+        printf("Escolha uma opção:");
+
+        //Lê a opção do usuário
+        scanf("%d", &opcao);
+        limparBufferEntrada();
+
         // Processo da Opção
         switch (opcao) {
             case 1: // Cadastro do território 1
@@ -84,7 +91,6 @@ int main() {
                     printf("Território cheio! Não é possivel cadastrar mais territórios.\n");
                 }
                 
-                break;
             case 2: // Lista de territórios 
                 printf("--- Lista de Territórios Cadastrados ---\n\n");
 
@@ -94,13 +100,20 @@ int main() {
                     for (int i = 0; i < totalTerritorios; i++) {
                         printf("TERRITÓRIO %d\n", i + 1);
                         printf("Nome do Território: %s\n", WAR[i].nome);
-                        printf("Cor do território: %s", WAR[i].cor);
-                        printf("Número de Tropas: %d", WAR[i].tropas);
+                        printf("Cor do território: %s\n", WAR[i].cor);
+                        printf("Número de Tropas: %d\n", WAR[i].tropas);
                     }
                     printf("---------------------------------------");
                 }
+            printf("\nPrecione Enter para continuar...");
+            getchar();
+            break;
 
-         default: //Opção invalida
+        case 0: //sair
+                printf("\nSaindo do sistema..\n");
+                break;
+                
+        default: //Opção invalida
              printf("\nOpção Inválida! Tente novamente.\n");
              printf("\nPressione Enter para continuar...");
              getchar();
